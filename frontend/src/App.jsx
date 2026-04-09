@@ -5,14 +5,14 @@ function App() {
   const [inputValue, setInputValue] = useState('')
 
   useEffect(() => {
-    fetch('http://localhost:3001/todos')
+    fetch('https://todo-app-production-0905.up.railway.app')
       .then(res => res.json())
       .then(data => setTodos(data))
   }, [])
 
   function addTodo() {
     if (inputValue === '') return
-    fetch('http://localhost:3001/todos', {
+    fetch('https://todo-app-production-0905.up.railway.app', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ text: inputValue })
@@ -25,7 +25,7 @@ function App() {
   }
 
   function deleteTodo(id) {
-    fetch(`http://localhost:3001/todos/${id}`, {
+    fetch(`https://todo-app-production-0905.up.railway.app/todos/${id}`, {
       method: 'DELETE'
     })
       .then(res => res.json())
